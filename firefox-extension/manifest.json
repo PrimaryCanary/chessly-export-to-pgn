@@ -1,0 +1,39 @@
+{
+    "manifest_version": 2,
+    "name": "Chessly PGN Exporter",
+    "version": "1.0",
+    "description": "Extracts chess moves and commentary from Chessly study pages.",
+    "permissions": [
+        "activeTab",
+        "http://localhost:5000/"
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "commands": {
+        "capture-move": {
+            "suggested_key": {
+                "default": "Alt+Shift+Q"
+            },
+            "description": "Capture Current Move & Commentary"
+        },
+        "new-variation": {
+            "suggested_key": {
+                "default": "Alt+Shift+W"
+            },
+            "description": "Signal New Variation"
+        },
+        "export-pgn": {
+            "suggested_key": {
+                "default": "Alt+Shift+Z"
+            },
+            "description": "Export PGN to File"
+        },
+        "capture-comment": {
+            "suggested_key": {
+                "default": "Alt+Shift+M"
+            },
+            "description": "Capture Current Comment"
+        }
+    }
+}
