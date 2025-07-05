@@ -17,12 +17,6 @@
             },
             "description": "Capture Current Move & Commentary"
         },
-        "new-variation": {
-            "suggested_key": {
-                "default": "Alt+Shift+W"
-            },
-            "description": "Signal New Variation"
-        },
         "export-pgn": {
             "suggested_key": {
                 "default": "Alt+Shift+Z"

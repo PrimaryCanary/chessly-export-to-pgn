@@ -73,14 +73,6 @@ def capture_move():
 
     return jsonify({"status": "success"})
 
-@app.route('/new_variation', methods=['POST'])
-def new_variation():
-    global is_starting_new_variation
-    print("Received /new_variation request.")
-    is_starting_new_variation = True
-    print("Set flag to start new variation with next move.")
-    return jsonify({"status": "success"})
-
 @app.route('/export_pgn', methods=['POST'])
 def export_pgn():
     global current_game, current_board_state, current_pgn_node, games

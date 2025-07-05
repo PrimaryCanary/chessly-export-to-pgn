@@ -9,23 +9,6 @@ browser.commands.onCommand.addListener(function (command) {
                 );
             },
         );
-    } else if (command === "new-variation") {
-        fetch("http://localhost:5000/new_variation", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({}),
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    return response.json().then((errorData) => {
-                        throw new Error(errorData.message || "Unknown error");
-                    });
-                }
-                return response.json();
-            })
-            .catch((err) => console.error("Error in new-variation:", err));
     } else if (command === "export-pgn") {
         fetch("http://localhost:5000/export_pgn", {
             method: "POST",
