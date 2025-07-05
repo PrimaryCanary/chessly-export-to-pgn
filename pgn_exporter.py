@@ -2,14 +2,15 @@
 # dependencies = [
 #     "python-chess",
 #     "flask",
-#     "flask-cors"
+#     "flask-cors",
+#     "colorama"
 # ]
 # ///
 
 # Run with uv.exe run pgn_exporter.py
 # Click through all the variations with alt-shift-q, alt-shift-m, and alt-shift-z after every variation
 # Generate a PGN and verify the number of variations with:
-# uv.exe run merge-pgn.py  output/study-*.pgn  output/merged.pgn && ./pgn-extract.exe output/merged.pgn --splitvariants --output output/Split.pgn && grep -c Event output/Split.pgnuv.exe run merge-pgn.py  output/study-*.pgn  output/merged.pgn && ./pgn-extract.exe output/merged.pgn --splitvariants --output output/Split.pgn && grep -c Event output/Split.pgn
+# uv.exe run merge-pgn.py  output/study-*.pgn  output/merged.pgn && ./pgn-extract.exe output/merged.pgn --splitvariants && grep -c Event
 # pgn-extract comes from https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/
 
 import chess
@@ -19,6 +20,9 @@ from flask_cors import CORS
 import datetime
 import os
 import re
+from colorama import init as colorama_init
+from colorama import Fore
+from colorama import Style
 
 app = Flask(__name__)
 CORS(app)
@@ -33,7 +37,6 @@ is_starting_new_variation = False
 def capture_move():
     global current_game, current_board_state, current_pgn_node, is_starting_new_variation
     data = request.json
-    print(f"Received /capture_move request with data: {data}")
     move_san = data.get('move')
     comment = data.get('comment')
 
@@ -65,7 +68,7 @@ def capture_move():
             print(f"Captured main line move: {san_only}, comment: {comment}")
 
     except Exception as e:
-        print(f"Error capturing move: {e}")
+        print(f"{Fore.RED}Error capturing move: {e}{Style.RESET_ALL}")
         return jsonify({"status": "error", "message": str(e)}), 400
 
     return jsonify({"status": "success"})
@@ -134,5 +137,6 @@ def export_pgn():
     return jsonify({"status": "success", "filename": filename})
 
 if __name__ == '__main__':
+    colorama_init()
     print("Starting Flask app on port 5000...")
     app.run(port=5000)
