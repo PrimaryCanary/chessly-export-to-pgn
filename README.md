@@ -15,8 +15,8 @@ This is a utility to somewhat automate transcribing Chessly courses to PGNs. Pre
 2) Arrow through a variation, pressing `alt+shif+q` to capture the current move and analysis.
 3) Press `alt+shift+m` and enter the move to capture the final move of the variation.
 4) Press `alt+shift+z` to export a PGN of the variation.
-5) Merge variations together with `uv.exe run merge-pgn.py  output/study-*.pgn output/merged.pgn` 
-6) Verify the number of variations is correct with `./pgn-extract.exe output/merged.pgn --splitvariants && grep -c Event`
+5) Merge variations together with `uv run merge-pgn.py  output/study-*.pgn output/merged.pgn` 
+6) Verify the number of variations is correct with `./pgn-extract output/merged.pgn --splitvariants && grep -c Event`
 
 # Acknowledgements
 
