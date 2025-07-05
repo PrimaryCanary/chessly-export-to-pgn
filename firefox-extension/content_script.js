@@ -17,17 +17,9 @@
         browser.runtime.sendMessage({
             action: "capture_move",
             data: { move, comment },
-        })
-            .then((response) => {
-                if (response && response.status === "error") {
-                    console.error(
-                        "Error from background script:",
-                        response.message,
-                    );
-                }
-            })
-            .catch((error) => console.error("Error sending message:", error));
+        });
     } else {
         console.log("No move found");
+        return { error: "No move found" }; // Return error to background script
     }
 })();

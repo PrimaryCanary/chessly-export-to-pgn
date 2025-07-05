@@ -14,17 +14,9 @@
         browser.runtime.sendMessage({
             action: "capture_comment_with_move",
             data: { move, comment },
-        })
-            .then((response) => {
-                if (response && response.status === "error") {
-                    console.error(
-                        "Error from background script:",
-                        response.message,
-                    );
-                }
-            })
-            .catch((error) => console.error("Error sending message:", error));
+        });
     } else {
         console.log("No move entered, comment not captured.");
+        return { error: "No move entered, comment not captured." }; // Return error to background script
     }
 })();
