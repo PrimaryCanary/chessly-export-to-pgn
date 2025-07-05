@@ -7,11 +7,6 @@
 # ]
 # ///
 
-# Run with uv.exe run pgn_exporter.py
-# Click through all the variations with alt-shift-q, alt-shift-m, and alt-shift-z after every variation
-# Generate a PGN and verify the number of variations with:
-# uv.exe run merge-pgn.py  output/study-*.pgn  output/merged.pgn && ./pgn-extract.exe output/merged.pgn --splitvariants && grep -c Event
-# pgn-extract comes from https://www.cs.kent.ac.uk/people/staff/djb/pgn-extract/
 
 import chess
 import chess.pgn

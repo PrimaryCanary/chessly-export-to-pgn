@@ -1,3 +1,5 @@
+# From https://github.com/olleeriksson/pgn-tools
+
 # /// script
 # dependencies = [
 #     "python-chess",
