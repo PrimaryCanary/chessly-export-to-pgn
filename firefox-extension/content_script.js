@@ -1,9 +1,9 @@
 (function () {
     const moveElement = document.querySelector(
-        ".LessonCard_lastMove__rKpLq span",
+        ".PotentialMoves_lastMove__ff9oE",
     );
     const commentElement = document.querySelector(
-        ".LessonCard_commentText__Z8d8y",
+        ".LessonCard_commentText__RnmvZ",
     );
 
     if (moveElement) {

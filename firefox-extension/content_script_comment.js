@@ -1,6 +1,6 @@
 (function () {
     const commentElement = document.querySelector(
-        ".LessonCard_commentText__Z8d8y",
+        ".LessonCard_commentText__RnmvZ",
     );
 
     let comment = "";
