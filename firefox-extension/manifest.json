@@ -1,33 +1,27 @@
 {
-    "manifest_version": 2,
-    "name": "Chessly PGN Exporter",
-    "version": "1.0",
-    "description": "Extracts chess moves and commentary from Chessly study pages.",
-    "permissions": [
-        "activeTab",
-        "http://localhost:5000/"
-    ],
-    "background": {
-        "scripts": ["background.js"]
-    },
-    "commands": {
-        "capture-move": {
-            "suggested_key": {
-                "default": "Alt+Shift+Q"
-            },
-            "description": "Capture Current Move & Commentary"
-        },
-        "export-pgn": {
-            "suggested_key": {
-                "default": "Alt+Shift+Z"
-            },
-            "description": "Export PGN to File"
-        },
-        "capture-comment": {
-            "suggested_key": {
-                "default": "Alt+Shift+M"
-            },
-            "description": "Capture Current Comment"
-        }
+  "manifest_version": 2,
+  "name": "Chessly PGN Exporter",
+  "version": "2.0.0",
+  "description": "Downloads the current Chessly study as an annotated PGN.",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "identity",
+    "storage",
+    "https://chessly.com/*",
+    "https://cag.chessly.com/*",
+    "https://lichess.org/*"
+  ],
+  "browser_action": {
+    "default_title": "Export Chessly PGN",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "chessly-pgn-exporter@local"
     }
+  }
 }
